@@ -1,13 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title>Assignment 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <h1>Assignment 1</h1>
+  <p id="status">Click the Boxman to move him. Press T to toggle dark mode.</p>
+
+  <div id="playground" style="position:relative;height:300px;border:2px dashed #aaa;margin-top:16px;">
+    <img id="boxman" src="/boxman.png" alt="Boxman image" style="position:absolute;left:10px;top:10px;width:150px;cursor:pointer;">
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
