@@ -27,7 +27,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key.toLowerCase() === 't') {
     document.body.classList.toggle('dark');
     statusEl.textContent = document.body.classList.contains('dark')
-      ? 'Dark mode ON. Press T to switch to light mode. Click the Boxman to move him.'
-      : 'Press T to toggle dark mode. Click the Boxman to move him.';
+      ? 'Dark mode ON. Press T to switch to light mode. Click the Boxman to make him jump!'
+      : 'Press T to toggle dark mode. Click the Boxman to move him.'
   }
 });
