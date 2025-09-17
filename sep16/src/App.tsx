@@ -10,7 +10,7 @@ function App() {
       <h1>Welcome to React Fundamentals</h1>
       <Button isSpecial={true} text="Button 1"/>
       <Button isSpecial={false} text="Button 2"/>
-      <CountButton isSpecial={false}/>
+      <CountButton isSpecial={true}/>
       <MyList />
     </div>
   )
