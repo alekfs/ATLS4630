@@ -1,4 +1,4 @@
-import ToDoItem from "./TodoItem";
+import ToDoItem from "./ToDoItem";
 import type { Todo } from "../App";
 
 export default function ToDoList({
