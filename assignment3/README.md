@@ -1,69 +1,82 @@
-# React + TypeScript + Vite
+# Write Up
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Write Up for Assignment 3 - Tinking in React
 
-Currently, two official plugins are available:
+Mock Up: https://www.figma.com/design/4Fii3yX46i8rxUt7djas7Q/Thinking-in-React--Mock-up?node-id=0-1&t=Hpjixc36OpaZHePV-1 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Step 1: Break the UI into a component hierarchy
+App
+    - Header
+    - TodoList
+        - TodoItem
+    - AddToDo
+The App component is the head of the hierarchy with all components linked to it. App also contains the ToDo prop that is explained in Step 2. ToDoList.tsx is the over arching component for the to do list which then includes the ToDoItem compoenent in it. AddToDo is the final component, at the bottom of the page to add items.
 
-## Expanding the ESLint configuration
+- **App** – root component, manages all state  
+- **Header** – title of the list  
+- **TodoList** – wraps and displays all items  
+- **TodoItem** – single item with checkbox + remove button  
+- **AddTodoForm** – input + add button at the bottom  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Each piece handles one clear function, following *Thinking in React* principles of modular and reusable UI blocks.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Step 2: Static Version
+The first version was built **without state or interactivity**.  
+- Todos rendered from a static array inside `App.tsx`.  
+- “Add” and “Remove” buttons were placeholders.  
+- Checkboxes were read-only.  
+- Only layout and spacing matched the mockup.  
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+This confirmed the visual structure before adding functionality.
+
+---
+
+## Step 3: Minimal but Complete UI State  
+
+Core interactive parts:
+- ✅ To-do items list  
+- ➕ Adding new items  
+- ☑️ Marking items as done  
+- ❌ Removing items  
+
+| Feature | Changes over time | Passed via props | Derived from props/state | Needs state |
+|----------|------------------|------------------|---------------------------|--------------|
+| To-do items | ✅ | ❌ | ❌ | ✅ |
+| Add form text | ✅ | ❌ | ❌ | ✅ |
+| Mark done | ✅ | ❌ | ❌ | ✅ |
+| Remove item | ✅ | ❌ | ❌ | ✅ |
+
+**Minimal state:**  
+```ts
+{ id: number; label: string; done: boolean }
 ```
+## Step 4: Identify Where Each Piece of State Should Live  
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Following *Thinking in React*, each piece of state should be owned by the **closest common ancestor** of the components that use it.  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- The **App** component holds the array of todos because both `TodoList` and `AddTodoForm` need to access or modify it.  
+- The **AddTodoForm** component has its own local `text` state, since it only needs to track what the user types before adding a new item.  
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This design keeps `App` as the single source of truth for all todos, ensuring that updates are predictable and all children stay in sync.
+
+---
+
+##Step 5: Add Inverse Data Flow  
+
+To make data flow back up, callback functions are passed from parent to child:  
+
+- `handleAdd(label)` → adds a new todo object to the list.  
+- `handleToggle(id)` → flips a todo’s `done` value.  
+- `handleRemove(id)` → removes a todo entirely.  
+
+These functions live in **App.tsx**, but are handed down to children via props:  
+- `AddTodoForm` calls `handleAdd()` when the form is submitted.  
+- `TodoItem` calls `handleToggle()` when a checkbox changes.  
+- `TodoItem` calls `handleRemove()` when the red remove button is clicked.  
+
+This pattern ensures **unidirectional data flow**:  
+data goes down via props → actions bubble up via callbacks.  
+
+The parent (`App`) updates its state, causing all children to re-render with the latest data — the React way.
