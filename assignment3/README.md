@@ -63,7 +63,7 @@ This design keeps `App` as the single source of truth for all todos, ensuring th
 
 ---
 
-##Step 5: Add Inverse Data Flow  
+## Step 5: Add Inverse Data Flow  
 
 To make data flow back up, callback functions are passed from parent to child:  
 
