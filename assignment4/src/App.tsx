@@ -22,7 +22,7 @@ export default function App() {
   };
   // useTypewriter
   const [typewriterInput, setTypewriterInput] = useState(
-    "Hello from useTypewriter!"
+    "Type something..."
   );
   const typedText = useTypewriter(typewriterInput, 100, 400);
 

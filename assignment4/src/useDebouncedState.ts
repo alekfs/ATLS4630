@@ -18,7 +18,6 @@ export function useDebouncedState<T>(
       window.clearTimeout(timeoutId);
     };
   }, [value, delay]);
-
   // debouncedValue updates after `delay` ms
   // setValue updates the underlying value immediately
   return [debouncedValue, setValue];
