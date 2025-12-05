@@ -37,7 +37,7 @@ export default function InteractiveHero() {
         <p className="hero-tagline">Creative Technology · UX · Cycling</p>
         <h1 className="hero-title">
           I design and build{" "}
-          <span className="hero-highlight">digital and playful</span> digital
+          <span className="hero-highlight">digital and playful</span>
           experiences.
         </h1>
         <p className="hero-sub">

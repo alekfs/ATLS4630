@@ -5,19 +5,11 @@ import StravaActivity from "@/app/components/StravaActivity";
 import StravaSummary from "@/app/components/StravaSummary";
 
 const carouselImages = [
-  {
-    src: "/about/bike-1.jpg",
-    alt: "Growler XC race",
-  },
-  {
-    src: "/about/bike-2.jpg",
-    alt: "Crested Butte DH race",
-  },
-  {
-    src: "/about/bike-3.jpg",
-    alt: "CX race Cross of the North",
-  },
-];
+    { src: "/about/bike-1.jpg", alt: "Growler XC race" },
+    { src: "/about/bike-2.jpg", alt: "Crested Butte DH race" },
+    { src: "/about/bike-3.jpg", alt: "CX race cross of the north" },
+  ];
+  
 
 export const metadata: Metadata = {
   title: "About | Alek Feehan-Schuler",
