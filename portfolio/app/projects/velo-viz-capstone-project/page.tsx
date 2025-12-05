@@ -110,8 +110,9 @@ export default function VeloVizPage() {
         <div className="detail-hero">
           <Image
             src="/projects/velo-viz/iteration2-1.gif"
-            width={600}
-            height={400}
+            width={420}
+            height={420}
+            className="iteration-gif"
             alt="Iteration 2 GIF 1"
             unoptimized
           />
@@ -119,8 +120,9 @@ export default function VeloVizPage() {
         <div className="detail-hero">
           <Image
             src="/projects/velo-viz/iteration2-2.gif"
-            width={600}
-            height={400}
+            width={420}
+            height={420}
+            className="iteration-gif"
             alt="Iteration 2 GIF 2"
             unoptimized
           />
@@ -128,8 +130,9 @@ export default function VeloVizPage() {
         <div className="detail-hero">
           <Image
             src="/projects/velo-viz/iteration2-3.gif"
-            width={600}
-            height={400}
+            width={420}
+            height={420}
+            className="iteration-gif"
             alt="Iteration 2 GIF 3"
             unoptimized
           />
@@ -137,8 +140,9 @@ export default function VeloVizPage() {
         <div className="detail-hero">
           <Image
             src="/projects/velo-viz/iteration2-4.gif"
-            width={600}
-            height={400}
+            width={420}
+            height={420}
+            className="iteration-gif"
             alt="Iteration 2 GIF 4"
             unoptimized
           />

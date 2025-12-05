@@ -175,8 +175,8 @@
   
   .hero-card {
     background:
-      radial-gradient(circle at top left, rgba(255, 111, 60, 0.16), transparent),
-      linear-gradient(160deg, #131325, #05050c);
+      radial-gradient(circle at top left, rgba(255, 111, 60, 0.17), transparent),
+      linear-gradient(160deg, #191931, #05050c);
     padding: 2.4rem;
     border-radius: var(--radius-xl);
     border: 1px solid rgba(255, 255, 255, 0.16);
@@ -254,30 +254,37 @@
     opacity: 0.92;
   }
   
-  /* Hero side card */
+  /* Hero side card: ride log */
   
   .hero-side-card {
-    padding: 1.6rem;
+    padding: 1.6rem 1.8rem;
     background: var(--bg-soft);
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
   
   .hero-side-label {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--muted);
-    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--fg);
   }
   
   .hero-meta {
-    margin: 0 0 1rem;
+    margin: 0;
+    padding: 0;
   }
   
   .hero-meta div {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .hero-meta dt,
+  .hero-meta dd {
+    display: block;              /* <-- ensures label + value are on separate lines */
   }
   
   .hero-meta dt {
@@ -288,7 +295,7 @@
   }
   
   .hero-meta dd {
-    margin: 0;
+    margin: 0.1rem 0 0.2rem;
     font-size: 0.95rem;
   }
   
@@ -395,11 +402,7 @@
      CAROUSEL
      =========================== */
   
-  /*
-    Works with a track whose width is set in TS like:
-    width: images.length * 100%
-    transform: translateX(-index * (100 / images.length)%)
-  */
+  /* Works with a track whose width is images.length * 100% */
   
   .carousel-shell {
     position: relative;
@@ -428,7 +431,7 @@
   .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* fill slide nicely with a bit of crop */
+    object-fit: cover;
     display: block;
   }
   
@@ -486,6 +489,27 @@
   }
   
   /* ===========================
+     Orange cursor follower
+     =========================== */
+  
+  /* JS should update transform: translate3d(x, y, 0) on this */
+  .cursor-orb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 9999;
+    background: radial-gradient(circle at 30% 30%, #ffe0a8, #ff6f3c);
+    mix-blend-mode: screen;
+    opacity: 0.7;
+    transform: translate3d(-999px, -999px, 0);
+    transition: transform 0.08s ease-out;
+  }
+  
+  /* ===========================
      Footer
      =========================== */
   
@@ -496,5 +520,14 @@
     color: var(--muted);
     font-size: 0.85rem;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }  
+
+  .iteration-gif {
+    width: 100%;
+    max-width: 420px;   /* adjust this number */
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
   }
   
