@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   description: "Cycling, UX, creative tech & capstone projects by Alek Feehan-Schuler.",
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>

@@ -107,8 +107,8 @@ export default function UXZooPage() {
       <article className="detail-body">
         <h3>User flow</h3>
         <p>
-          I designed a simplified ticket-buying flow starting from the homepage and guiding users through tickets, 
-          add-ons, a review step, and confirmation. A Login/Guest Checkout option reduces friction, while a dedicated 
+          I designed a simplified ticket-buying flow starting from the homepage and guiding users through tickets,
+          add-ons, a review step, and confirmation. A Login/Guest Checkout option reduces friction, while a dedicated
           Review Cart screen improves transparency and confidence.
         </p>
       </article>

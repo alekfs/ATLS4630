@@ -627,11 +627,23 @@
     border: 1px solid rgba(255, 255, 255, 0.16);
     margin-bottom: 1.6rem;
   }
-  
+
   .detail-hero img {
     display: block;
     width: 100%;
     height: auto;                /* never stretch hero */
+  }
+
+  /* When detail-hero is inside projects-grid, keep uniform sizing */
+  .projects-grid .detail-hero {
+    width: 100%;
+  }
+
+  .projects-grid .detail-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: var(--bg-elevated);
   }
   
   .detail-body {
