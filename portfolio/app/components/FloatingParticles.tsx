@@ -15,6 +15,7 @@ export default function FloatingParticles() {
 
     // Set canvas size
     const resizeCanvas = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
@@ -30,48 +31,48 @@ export default function FloatingParticles() {
       speedY: number;
       opacity: number;
 
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+      constructor(canvasWidth: number, canvasHeight: number) {
+        this.x = Math.random() * canvasWidth;
+        this.y = Math.random() * canvasHeight;
         this.size = Math.random() * 2 + 0.5;
         this.speedX = (Math.random() - 0.5) * 0.3;
         this.speedY = (Math.random() - 0.5) * 0.3;
         this.opacity = Math.random() * 0.5 + 0.2;
       }
 
-      update() {
+      update(canvasWidth: number, canvasHeight: number) {
         this.x += this.speedX;
         this.y += this.speedY;
 
         // Wrap around screen
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
+        if (this.x > canvasWidth) this.x = 0;
+        if (this.x < 0) this.x = canvasWidth;
+        if (this.y > canvasHeight) this.y = 0;
+        if (this.y < 0) this.y = canvasHeight;
       }
 
-      draw() {
-        if (!ctx) return;
-        ctx.fillStyle = `rgba(255, 111, 60, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
+      draw(context: CanvasRenderingContext2D) {
+        context.fillStyle = `rgba(255, 111, 60, ${this.opacity})`;
+        context.beginPath();
+        context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        context.fill();
       }
     }
 
     // Create particles
     const particles: Particle[] = [];
     for (let i = 0; i < 50; i++) {
-      particles.push(new Particle());
+      particles.push(new Particle(canvas.width, canvas.height));
     }
 
     // Animation loop
     const animate = () => {
+      if (!canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle, i) => {
-        particle.update();
-        particle.draw();
+        particle.update(canvas.width, canvas.height);
+        particle.draw(ctx);
 
         // Draw connections
         particles.slice(i + 1).forEach((otherParticle) => {
