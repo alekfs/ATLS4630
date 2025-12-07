@@ -1,7 +1,4 @@
-/* ===========================
-   Base Theme / Global Styles
-   =========================== */
-
+/* ===========================Base Theme / Global Styles=========================== */
    :root {
     --bg: #03030a;
     --bg-elevated: #101022;
@@ -58,9 +55,7 @@
     color: var(--fg);
   }
   
-  /* ===========================
-     Layout
-     =========================== */
+  /* ===========================Layout=========================== */
   
   .site-shell {
     min-height: 100vh;
@@ -78,9 +73,7 @@
     margin: 0 auto 3rem;
   }
   
-  /* ===========================
-     Typography helpers
-     =========================== */
+  /* ===========================Typography helpers=========================== */
   
   .page-kicker {
     font-size: 0.8rem;
@@ -113,9 +106,7 @@
     font-size: 1rem;
   }
   
-  /* ===========================
-     Navbar
-     =========================== */
+  /* ===========================Navbar=========================== */
   
   .navbar {
     position: sticky;
@@ -237,7 +228,7 @@
     box-shadow: var(--shadow-soft);
   }
   
-  /* orange interactive orb that follows cursor INSIDE hero */
+  /* orange interactive orb that follows cursor inside hero */
   .cursor-orb {
     position: absolute;
     width: 320px;
@@ -478,7 +469,7 @@
   
   .hero-meta dt,
   .hero-meta dd {
-    display: block; /* label + value on separate lines */
+    display: block;
   }
   
   .hero-meta dt {
@@ -498,9 +489,7 @@
     color: var(--muted);
   }
   
-  /* ===========================
-     Generic cards & grids
-     =========================== */
+  /* ===========================Generic cards & grids=========================== */
   
   .card {
     padding: 1.6rem;
@@ -533,7 +522,7 @@
   
   /* --- PROJECT LIST CARD HERO IMAGES --- */
   
-  /* Wrap card hero image in .project-card-hero (see snippet below) */
+  /* Wrap card hero image in .project-card-hero */
   .project-card {
     border-radius: var(--radius-lg);
     background: linear-gradient(180deg, #19192f, #05050e);
@@ -576,14 +565,14 @@
   .project-card-hero {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;        /* keeps consistent shape, no stretch */
+    aspect-ratio: 16 / 9;
     overflow: hidden;
   }
 
   .project-card-hero img {
     width: 100%;
     height: 100%;
-    object-fit: cover;           /* crop if needed, no distortion */
+    object-fit: cover;
     display: block;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -631,7 +620,7 @@
   .detail-hero img {
     display: block;
     width: 100%;
-    height: auto;                /* never stretch hero */
+    height: auto;
   }
 
   /* When detail-hero is inside projects-grid, keep uniform sizing */
@@ -659,9 +648,7 @@
     line-height: 1.65;
   }
   
-  /* ===========================
-     About page layout
-     =========================== */
+  /* ===========================About page layout=========================== */
   
   .about-grid {
     display: grid;
@@ -675,9 +662,7 @@
     }
   }
   
-  /* ===========================
-     Carousel
-     =========================== */
+  /* ===========================Carousel=========================== */
   
   .carousel-shell {
     position: relative;
@@ -768,9 +753,7 @@
     background: var(--accent);
   }
   
-  /* ===========================
-     Strava widgets
-     =========================== */
+  /* ===========================Strava widgets=========================== */
   
   .strava-card {
     border-radius: var(--radius-lg);
@@ -784,9 +767,7 @@
     color: var(--muted);
   }
   
-  /* ===========================
-     Velo Viz – iteration layouts
-     =========================== */
+  /* ===========================Velo Viz – iteration layouts=========================== */
   
   .iteration-grid-2 {
     display: grid;
@@ -795,7 +776,7 @@
   
   @media (min-width: 720px) {
     .iteration-grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 side-by-side */
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
   
@@ -806,7 +787,7 @@
   
   @media (min-width: 900px) {
     .iteration-row-gifs {
-      grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 gifs next to each other */
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
   
@@ -824,9 +805,7 @@
     margin: 0 auto;
   }
   
-  /* ===========================
-     Animations & Keyframes
-     =========================== */
+  /* ===========================Animations & Keyframes=========================== */
 
   @keyframes fadeInUp {
     from {
@@ -859,13 +838,7 @@
   .project-card:nth-child(5) { animation-delay: 0.5s; }
   .project-card:nth-child(6) { animation-delay: 0.6s; }
 
-  /* ===========================
-     Footer
-     =========================== */
-
-  /* ===========================
-     Section Divider
-     =========================== */
+  /* ===========================Section Divider=========================== */
 
   .section-divider {
     width: 100%;
@@ -892,9 +865,7 @@
     }
   }
 
-  /* ===========================
-     Footer
-     =========================== */
+  /* ===========================Footer=========================== */
 
   .footer {
     margin-top: 2rem;
