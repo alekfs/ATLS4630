@@ -22,13 +22,14 @@ export default function ProjectGrid({ limit }: ProjectGridProps) {
           href={`/projects/${project.slug}`}
           className="project-card"
         >
-          <div className="project-image-wrap">
+          <div className="project-card-hero">
             <Image
                 src={project.heroSrc}
                 alt={project.title}
                 width={800}
                 height={450}
                 unoptimized={project.heroSrc.endsWith(".gif")}
+                style={{ objectFit: 'cover' }}
             />
           </div>
           <div className="project-content">

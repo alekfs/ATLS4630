@@ -42,22 +42,23 @@ export default function VeloVizPage() {
 
       {/* ITERATION 1 */}
       <h2>Iteration 1</h2>
-      <div className="detail-hero">
+      <div className="iteration-grid-2">
         <Image
           src="/projects/velo-viz/iteration1-1.jpg"
-          alt="Iteration 1 photo 1"
-          width={1200}
-          height={700}
+          alt="Iteration 1 prototype 1"
+          width={800}
+          height={600}
+          className="iteration-img"
         />
-      </div>
-      <div className="detail-hero">
         <Image
           src="/projects/velo-viz/iteration1-2.jpg"
-          alt="Iteration 1 photo 2"
-          width={1200}
-          height={700}
+          alt="Iteration 1 prototype 2"
+          width={800}
+          height={600}
+          className="iteration-img"
         />
       </div>
+
 
       <article className="detail-body">
         <p>
@@ -94,59 +95,49 @@ export default function VeloVizPage() {
 
       {/* ITERATION 2 */}
       <h2>Iteration 2</h2>
-
+      
+      {/* iteration2-1 by itself, slightly larger */}
       <div className="detail-hero">
         <Image
-          src="/projects/velo-viz/iteration2.gif"
-          alt="Iteration 2 main GIF"
-          width={1200}
-          height={700}
+          src="/projects/velo-viz/iteration2-1.gif"
+          alt="Iteration 2 LED pattern test"
+          width={960}
+          height={540}
+          className="iteration-gif"
           unoptimized
         />
       </div>
 
-      {/* Four GIFs */}
-      <div className="projects-grid">
-        <div className="detail-hero">
-          <Image
-            src="/projects/velo-viz/iteration2-1.gif"
-            width={420}
-            height={420}
-            className="iteration-gif"
-            alt="Iteration 2 GIF 1"
-            unoptimized
-          />
-        </div>
-        <div className="detail-hero">
-          <Image
-            src="/projects/velo-viz/iteration2-2.gif"
-            width={420}
-            height={420}
-            className="iteration-gif"
-            alt="Iteration 2 GIF 2"
-            unoptimized
-          />
-        </div>
-        <div className="detail-hero">
-          <Image
-            src="/projects/velo-viz/iteration2-3.gif"
-            width={420}
-            height={420}
-            className="iteration-gif"
-            alt="Iteration 2 GIF 3"
-            unoptimized
-          />
-        </div>
-        <div className="detail-hero">
-          <Image
-            src="/projects/velo-viz/iteration2-4.gif"
-            width={420}
-            height={420}
-            className="iteration-gif"
-            alt="Iteration 2 GIF 4"
-            unoptimized
-          />
-        </div>
+      <p className="detail-body">
+        Fully functional LED patterns connected to Arduino Uno R3.
+      </p>
+
+      {/* iteration2-2 through iteration2-4 side by side */}
+      <div className="iteration-row-gifs">
+        <Image
+          src="/projects/velo-viz/iteration2-2.gif"
+          alt="Iteration 2 pattern angle 1"
+          width={480}
+          height={360}
+          className="iteration-gif"
+          unoptimized
+        />
+        <Image
+          src="/projects/velo-viz/iteration2-3.gif"
+          alt="Iteration 2 pattern angle 2"
+          width={480}
+          height={360}
+          className="iteration-gif"
+          unoptimized
+        />
+        <Image
+          src="/projects/velo-viz/iteration2-4.gif"
+          alt="Iteration 2 pattern angle 3"
+          width={480}
+          height={360}
+          className="iteration-gif"
+          unoptimized
+        />
       </div>
 
       <article className="detail-body">

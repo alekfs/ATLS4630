@@ -28,7 +28,7 @@ export default function InteractiveHero() {
     >
       <article className="hero-card">
         <div
-          className="hero-orbit"
+          className="cursor-orb"
           style={{
             left: `${orbitPos.x}%`,
             top: `${orbitPos.y}%`,
@@ -46,12 +46,12 @@ export default function InteractiveHero() {
           tools that feel a little magical and very usable.
         </p>
 
-        <div className="hero-pills">
+        {/* <div className="hero-pills">
           <span className="pill">Velo Viz · bike safety capstone</span>
           <span className="pill">UX: Denver Zoo redesign</span>
           <span className="pill">KELA Boba brand &amp; site</span>
           <span className="pill">Interactive JS overlays</span>
-        </div>
+        </div> */}
 
         <div className="hero-cta-row">
           <Link href="/projects" className="button-primary">

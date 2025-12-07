@@ -3,6 +3,10 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import FloatingParticles from "@/app/components/FloatingParticles";
+import ScrollProgress from "@/app/components/ScrollProgress";
+import CustomCursor from "@/app/components/CustomCursor";
+import PageTransition from "@/app/components/PageTransition";
 
 export const metadata: Metadata = {
   title: "Alek Feehan-Schuler | Portfolio",
@@ -17,6 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <PageTransition />
+        <ScrollProgress />
+        <FloatingParticles />
+        <CustomCursor />
         <div className="site-shell">
           <Navbar />
           <main className="site-main">{children}</main>

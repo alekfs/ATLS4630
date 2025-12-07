@@ -45,20 +45,21 @@ export default function ImageCarousel({
 
   return (
     <div className="carousel-shell">
-      <div
-        className="carousel-track"
-        style={{
-          width: `${trackWidth}%`,
-          transform: `translateX(-${offset}%)`,
-        }}
-      >
+      <div className="carousel-track">
         {images.map((img, i) => (
-          <div className="carousel-slide" key={img.src + i}>
+          <div
+            className="carousel-slide"
+            key={`${img.src}-${i}`}
+            style={{
+              display: i === index ? 'block' : 'none',
+            }}
+          >
             <Image
               src={img.src}
               alt={img.alt}
-              width={1200}
-              height={800}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
               priority={i === 0}
             />
           </div>
@@ -70,6 +71,7 @@ export default function ImageCarousel({
           type="button"
           className="carousel-button"
           onClick={() => go("prev")}
+          aria-label="Previous image"
         >
           ◀
         </button>
@@ -87,6 +89,7 @@ export default function ImageCarousel({
           type="button"
           className="carousel-button"
           onClick={() => go("next")}
+          aria-label="Next image"
         >
           ▶
         </button>
