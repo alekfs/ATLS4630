@@ -37,7 +37,14 @@ export type Project = {
         tagline: "Tiny experiments in JS, HUD overlays and games.",
         heroSrc: "/projects/interactive-js.gif",
       },
-      
+      {
+        slug: "ai-projects",
+        title: "AI Projects",
+        role: "AI · machine learning",
+        tagline: "Exploring artificial intelligence and machine learning applications.",
+        heroSrc: "/projects/ai-projects/hero.png",
+      },
+
   ];
   
   export function getProjects(): Project[] {

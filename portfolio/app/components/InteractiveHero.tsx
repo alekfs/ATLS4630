@@ -64,22 +64,17 @@ export default function InteractiveHero() {
       </article>
 
       <aside className="hero-side-card">
-        <p className="hero-side-title">Ride log snapshot</p>
-        <div className="hero-side-stat-row">
-          <span>Recent focus</span>
-          <span className="hero-side-stat-value">Cyclocross &amp; MTB</span>
-        </div>
-        <div className="hero-side-stat-row">
-          <span>Home base</span>
-          <span className="hero-side-stat-value">Boulder, CO</span>
-        </div>
-        <div className="hero-side-stat-row">
-          <span>Current project</span>
-          <span className="hero-side-stat-value">Front End Web-Dev</span>
-        </div>
-            {/* <div className="hero-side-strip">
-            Scroll · projects · Strava embed · LEDs · maps
-            </div> */}
+        <p className="hero-side-title">Play a volume slider game I made while you&apos;re here</p>
+        <iframe
+          src="https://alekfs.github.io/wa/wa13/wa13.html"
+          style={{
+            width: "100%",
+            height: "100%",
+            border: "none",
+            borderRadius: "8px",
+          }}
+          title="Coin Flip Volume Slider Game"
+        />
       </aside>
     </section>
   );

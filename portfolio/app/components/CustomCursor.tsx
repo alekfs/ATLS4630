@@ -1,15 +1,41 @@
 // components/CustomCursor.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
+  const rafRef = useRef<number>();
 
   useEffect(() => {
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    const updateCursorPosition = () => {
+      // Smooth interpolation for the ring (slight lag effect)
+      currentX += (mouseX - currentX) * 0.15;
+      currentY += (mouseY - currentY) * 0.15;
+
+      // Update dot position (instant)
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      }
+
+      // Update ring position (smooth follow)
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+      }
+
+      rafRef.current = requestAnimationFrame(updateCursorPosition);
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      mouseX = e.clientX;
+      mouseY = e.clientY;
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -25,12 +51,18 @@ export default function CustomCursor() {
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    document.addEventListener("mouseover", handleMouseOver, { passive: true });
+
+    // Start animation loop
+    rafRef.current = requestAnimationFrame(updateCursorPosition);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseover", handleMouseOver);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
     };
   }, []);
 
@@ -38,35 +70,36 @@ export default function CustomCursor() {
     <>
       {/* Main cursor dot */}
       <div
+        ref={dotRef}
         style={{
           position: "fixed",
-          left: position.x,
-          top: position.y,
+          left: 0,
+          top: 0,
           width: "8px",
           height: "8px",
           borderRadius: "50%",
           background: "linear-gradient(135deg, #ff6f3c, #ffd36f)",
           pointerEvents: "none",
           zIndex: 9999,
-          transform: "translate(-50%, -50%)",
-          transition: "transform 0.15s ease",
+          willChange: "transform",
           mixBlendMode: "difference",
         }}
       />
       {/* Cursor ring */}
       <div
+        ref={ringRef}
         style={{
           position: "fixed",
-          left: position.x,
-          top: position.y,
+          left: 0,
+          top: 0,
           width: isHovering ? "50px" : "30px",
           height: isHovering ? "50px" : "30px",
           borderRadius: "50%",
           border: "2px solid rgba(255, 111, 60, 0.5)",
           pointerEvents: "none",
           zIndex: 9998,
-          transform: "translate(-50%, -50%)",
-          transition: "width 0.3s ease, height 0.3s ease",
+          willChange: "transform",
+          transition: "width 0.2s ease, height 0.2s ease",
           mixBlendMode: "difference",
         }}
       />
