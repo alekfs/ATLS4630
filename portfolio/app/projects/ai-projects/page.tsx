@@ -322,8 +322,8 @@ export default function AIProjectsPage() {
       src="//www.instagram.com/embed.js"
       strategy="lazyOnload"
       onLoad={() => {
-        if (window.instgrm) {
-          window.instgrm.Embeds.process();
+        if ((window as any).instgrm) {
+          (window as any).instgrm.Embeds.process();
         }
       }}
     />
