@@ -17,6 +17,13 @@ export type Project = {
       heroSrc: "/projects/denver-zoo.jpg",
     },
     {
+      slug: "ux-pedal-stoke-audit",
+      title: "Pedal Stoke UX Audit",
+      role: "UX · heuristic evaluation",
+      tagline: "Comprehensive UX audit of a Boulder bike bag company.",
+      heroSrc: "/projects/ux-pedal-stoke-audit/hero.jpg",
+    },
+    {
       slug: "velo-viz-capstone-project",
       title: "Velo Viz: Capstone Project",
       role: "Creative tech · hardware",
